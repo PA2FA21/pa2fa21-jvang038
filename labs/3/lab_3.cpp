@@ -1,6 +1,6 @@
 /*
  * Name        : lab_3.cpp
- * Author      : FILL IN
+ * Author      : Jasmine Vang
  * Description : Using branching statements, looping statements and string and
  *               character functions complete the functions
  */
@@ -64,7 +64,34 @@ int main() {
  * @return string - The output string specified in the documentation above
  */
 string Goldilocks(string item, int number) {
-  // CODE HERE
+  
+
+  if (item == "porridge") {
+      if (number == 1) {
+        return "This porridge is too hot";
+      } else if (number == 2) {
+        return "This porridge is too cold";
+      } else {
+        return "This porridge is just right";
+      }
+  } else if (item == "chair") {
+      if (number == 1) {
+        return "This chair is too big";
+      } else if (number == 2) {
+        return "This chair is too small";
+      } else {
+        return "This chair is just right";
+      }
+  } else {
+    if (number == 1) {
+        return "This bed is too hard";
+      } else if (number == 2) {
+        return "This bed is too soft";
+      } else {
+        return "This bed is just right";
+      }
+  }
+
 }
 
 /*
@@ -81,7 +108,42 @@ string Goldilocks(string item, int number) {
  */
 int RockScissorPaper(char player_one, char player_two) {
   // YOU MUST USE A SWITCH IN THIS FUNCTION
-  // CODE HERE
+  
+  player_two = tolower(player_two);
+  
+  switch (tolower(player_one)) {
+    case 'r':
+      if (player_two == 'r') {
+        return 3; 
+      } else if (player_two == 'p') {
+        return 2;
+      } else {
+        return 1;
+      }
+      break;
+      
+    case 'p':
+      if (player_two == 'r') {
+        return 1; 
+      } else if (player_two == 'p') {
+        return 3;
+      } else {
+        return 2;
+      }
+      break;
+      
+    case 's':
+      if (player_two == 'r') {
+        return 2; 
+      } else if (player_two == 'p') {
+        return 1;
+      } else {
+        return 3;
+      }
+      break;
+ }
+  
+  return 0;
 }
 
 /*
@@ -94,9 +156,11 @@ int RockScissorPaper(char player_one, char player_two) {
  *                  the char
  */
 string CharWithAsciiValueAsString(char character) {
-  // CODE HERE
-
-  // HINT: try a stringstream here
+  // stringstream take anything and change it to a string
+  
+  stringstream ss; 
+  ss << character << " " << static_cast<int>(character);
+  return ss.str(); 
 }
 
 /*
@@ -105,7 +169,11 @@ string CharWithAsciiValueAsString(char character) {
  * @return string - a string containing the converted input string
  */
 string ToLower(string input) {
-  // CODE HERE
+  for (unsigned int i = 0; i < input.length(); i++) {
+   input.at(i) = tolower(input.at(i));
+  }
+  
+  return input; 
 }
 
 /*
@@ -114,7 +182,11 @@ string ToLower(string input) {
  * @return string - a string containing the converted input string
  */
 string ToUpper(string input) {
-  // CODE HERE
+  for (unsigned int i = 0; i < input.length(); i++) {
+   input.at(i) = toupper(input.at(i));
+  }
+  
+  return input; 
 }
 
 /*
@@ -127,7 +199,12 @@ string ToUpper(string input) {
  *                outside the range of the string. The null character is '\0'
  */
 char GetCharacter(string input, int char_index) {
-  // CODE HERE
+  if (char_index >= 0 && char_index <= input.length()) {
+    return input.at(char_index);
+  } else {
+    return '\0';
+  }
+  
 }
 
 // For testing (DO NOT ALTER)

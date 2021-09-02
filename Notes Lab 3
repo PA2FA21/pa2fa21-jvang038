@@ -1,0 +1,146 @@
+out to the user 
+
+//Declare variable
+int number;
+cout << "please input a number between 1 and 100: ";
+//input
+cin >> number;
+
+if (number > 50) {
+    cout << "the number is high";
+} else {    // (elses are optional) 
+    cout << "the number is low";
+}
+// make a new line in cout terminal 
+cout << endl;
+
+        //if else statement 
+
+if {             // evaluates the first one, then the next untill nothing left than else 
+} else if {
+} else if {
+} else {
+}
+
+        //Switch Statements
+        
+//based off of a comparison, has to be equal to something, ie have to have a case for each        
+        
+switch (number / 10) {
+    case: 9:
+        cout << "A";
+        break;           //each case ends with a break 
+}
+    
+
+        //Short circuit evaluations 
+        
+// when evaluating and statements if one side is false doesnt need to know other side, same with or
+
+int cookies, student;
+cout << "how many cookies? ";
+cin >> cookies;
+cout << "how many student? ";
+cin >> Students
+
+if (students != 0 && cookies / students >= 2) {    //putting parramiters on both sides of the &&
+cout<< "you can have 2 cookies each" << endl;
+
+
+        //Loops
+        
+// iteration - how many times it loops, infinate loop - loops forever 
+
+   
+    //while loop 
+    
+int number, origional_number;
+
+cout << "# of iterations?"
+cin >> number;
+
+origional_number = number 
+
+while (number > 0) {
+    cout << number << " ";
+    number--;
+}    
+
+cout << endl;
+
+   
+    //do while
+    
+// want to get something first and then test it    
+    
+number = origional_number;
+do {
+    cout << number << " ";
+    number --;
+    } while (number > 0);
+    
+cout >> endl 
+    
+  
+    //For loop
+    
+for (int i = 0; i < number; i++) {
+cout << i << endl;
+}
+
+
+        //Strings
+
+//an add on 
+
+using std::string;  //on the top of code 
+
+
+string my_string;
+my_string = "hello"; 
+
+
+//concatenation, joining two strings together
+my_string = my_string + " World!";
+
+cout << my_string << endl;
+
+//upper case numbers are smaller in value than lower case numbers 
+
+string lower = "hello world"
+if (my_string > lower) {
+    cout << "larger" << endl;
+} else { 
+    cout << "smaller" << endl;
+}
+
+// will print upper case it is smaller 
+
+    // Characters in a string 
+    
+cout << my_string.at(0) << endl;
+
+
+
+    // isalpha 
+
+// is the character a letter 
+
+cout << "isalpha('a') << endl;
+// will return a number, if returns 0, not a letter
+
+if (isalpha('b'))
+    cout << "its a letter" << endl;
+
+
+//changing H to lower case h 
+
+string s = "hello";
+
+s.at(0) = tolower(s.at(0));
+cout << s << endl;
+    
+s.at(0) = s.at(0) + 1;  //will be the next letter in the alphabet i 
+
+
+

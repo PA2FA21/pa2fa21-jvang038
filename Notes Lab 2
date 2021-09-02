@@ -1,0 +1,18 @@
+x = x + 2 or
+x += 2
+
+x += 1 or
+x ++ (adds one to variable) 
+x -- 
+can have ++ x it impacts the x value differently, changes order
+
+Escape Sequence
+\t - tab 
+\n - new line 
+
+
+//constants Making a value that cant change
+
+const int kMaxStudents = 5; //add const in front of var to identify constant
+
+//constants are written with a k followed by mixed casing 

@@ -1,0 +1,57 @@
+getline() gets input in as a string 
+
+cin gets input as multiple types but doesnt allow for white spaces 
+
+cin.ignore(1000, '\n') 
+
+.get - gets a single character and removes it 
+
+.peek() - gets the character and leaves it
+
+
+
+        //StringStream
+        
+*/ a stream that stores ecerything as a string
+* # include <sstream> and <iosstream> then declare std::stringstream ss; 
+* use the same way as cin 
+* output ss << my_string;
+* input ss>> my_string;
+* most time will be outputting and returning as a string 
+
+    Example:
+
+int age, new_age;
+string name_age, name;
+
+stringstream ss;
+
+cout << "please enter age";
+cin >> age;
+cin.ignore(1000. '\n');
+cout << "enter name";
+getline(cin, name) 
+
+//cout << "hello "  << name << " you are " << age << " years old." << endl; // prints to terminal
+ss << "hello "  << name << " you are " << age << " years old." << endl;
+// wont output to terminal so 
+name_age = ss.str();   // better to have data in a variable that is saved and can be used 
+cout << name_age; 
+
+//create new ss 
+stringstream ss_with_var(name_age); 
+
+//right now buffer is what the user input is
+
+while(!isdigit(ss_with_var.peek())) {   //peek will look at first char in buffer isdigit sees if its a digit(#)
+    ss_with_var.ignore(1);   // if it isnt a digit throw it away until we hit the char digit then exit loop. 
+
+}
+
+ss_with_var >> new_age;
+cout << "age extracted was " << new_age << endl;  
+
+
+        // Functions
+        
+        

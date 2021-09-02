@@ -1,0 +1,6 @@
+test style 
+
+cd labs/(lab #)
+makefile
+make style
+

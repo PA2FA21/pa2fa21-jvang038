@@ -54,4 +54,19 @@ cout << "age extracted was " << new_age << endl;
 
         // Functions
         
-        
+prepare for display 
+output the array and seperate it by the seperator char with no trailing char
+
+// hasvalue 
+search for the value in the array, true if found. false is not. Will need a loop to look for it
+
+// valueat 
+find the thing at the spot, index valid not less than 0 or greater to equal of value
+
+// sum
+take 0 and add each element to that (start at 0!) 
+
+// swapvalue 
+have a temp to store the value in and swap them. 
+
+

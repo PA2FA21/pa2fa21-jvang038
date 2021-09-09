@@ -44,15 +44,24 @@ int main() {
       // Mixed input with errors
       cout << "Please enter your age: ";
       cin >> age;
+<<<<<<< HEAD
       cout << "Please enter your full name: ";    //Will skip collecting name
       getline(cin, name); 
+=======
+      cout << "Please enter your full name: ";
+      getline(cin, name);
+>>>>>>> 574ddc81ea76f8cfdc9cdc205547e5bc9ff4a1a8
       cout << "Hello " << name << " you are " << age << " years old." << endl;
       break;
     case 4:
       // Mixed input without errors
       cout << "Please enter your age: ";
       cin >> age;
+<<<<<<< HEAD
       cin.ignore(1000, '\n');         // add this in to erase the /n to give space for the input
+=======
+      cin.ignore(1000, '\n');
+>>>>>>> 574ddc81ea76f8cfdc9cdc205547e5bc9ff4a1a8
       cout << "Please enter your full name: ";
       getline(cin, name);
       cout << "Hello " << name << " you are " << age << " years old." << endl;

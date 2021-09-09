@@ -1,6 +1,10 @@
-test style 
+//test style 
 
-cd labs/(lab #)
-makefile
+cd labs
+cd #
+make
 make style
 
+//run lab, instead of make style: 
+
+./lab_#

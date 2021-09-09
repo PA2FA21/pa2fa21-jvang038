@@ -18,12 +18,17 @@ using std::string;
 void CallByValue(string call_by_value);
 /*
  * Changes the value of the parameter and outputs it
+ * makes a copy and uses it in the called function 
  */
 void CallByReference(string &call_by_reference);
 /*
  * Tries to change the value of the parameter and outputs it
+ * changes the value in the main, and uses it in the function
+ * identified by the & 
  */
 void ConstByReference(const string &const_by_reference);
+  // use const to use call by reference without changing the value
+  // use other funcs if needing to store the value not just return it
 
 // Program starts here
 int main() {

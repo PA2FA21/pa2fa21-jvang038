@@ -185,8 +185,8 @@ string ToUpper(string input) {
   for (unsigned int i = 0; i < input.length(); i++) {
    input.at(i) = toupper(input.at(i));
   }
-  
-  return input; 
+
+  return input;
 }
 
 /*

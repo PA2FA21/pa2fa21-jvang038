@@ -1,6 +1,6 @@
 /*
  * Name        : lab_6.cpp
- * Author      : FILL IN
+ * Author      : Jasmine Vang
  * Description : Practicing Functions
  */
 
@@ -13,6 +13,7 @@ using std::cin;
 using std::cout;
 using std::endl;
 using std::string;
+using std::stringstream;
 
 /*
  * function name: Hello
@@ -34,6 +35,7 @@ void Hello();
  * Display message to stdout (no newline character after)
  */
 // CODE HERE (FUNCTION PROTOTYPE)
+void PrintMessage(string message);
 
 /*
  * function name: GetAnswer
@@ -44,6 +46,7 @@ void Hello();
  * Return the value 42
  */
 // CODE HERE (FUNCTION PROTOTYPE)
+int GetAnswer();
 
 /*
  * function name: FindLarger
@@ -55,6 +58,7 @@ void Hello();
  * if the values are equivalent.
  */
 // CODE HERE (FUNCTION PROTOTYPE)
+int FindLarger(const int &avalue, const int &bvalue);
 
 /*
  * function name: GetStats
@@ -69,6 +73,7 @@ void Hello();
  * characters in the first parameter (string)
  */
 // CODE HERE (FUNCTION PROTOTYPE)
+int GetStats(const string &astring, int &upper, int &lower);
 
 /*
  * function name: BuildMessage
@@ -83,6 +88,7 @@ void Hello();
  * "Message: empty".
  */
 // CODE HERE (FUNCTION PROTOTYPE)
+string BuildMessage(const string &a_message = "", const bool &value = false);
 
 
 // For testing (DO NOT ALTER)
@@ -108,6 +114,51 @@ void Hello() {
   cout << "Hello world!";
 }
 
+void PrintMessage(string message) {
+  cout << message;
+}
+
+int GetAnswer() {
+  return 42;
+}
+
+int FindLarger(const int &avalue, const int &bvalue) {
+  if (avalue >= bvalue) {
+    return avalue;
+  } else {
+    return bvalue;
+  }
+}
+
+int GetStats(const string &astring, int &upper, int &lower) {
+  upper = 0;
+  lower = 0;
+  for (int i = 0; i < astring.size(); i++) {
+    if (isupper(astring[i])) {
+      upper++;
+    } else if (islower(astring[i])) {
+      lower++;
+    }
+  }
+  return astring.length();
+}
+
+string BuildMessage(const string &a_message, const bool &value) {
+  stringstream ss;
+  int i = 0;
+  string message = a_message;
+  if (i != a_message.length() && value == false) {
+    ss << "Message: " << a_message;
+  } else if (i != a_message.length() && value == true) {
+    for (int i = 0; i < a_message.length(); i++) {
+      message.at(i) = toupper(a_message.at(i));
+    }
+    ss << "Message: " << message;
+  } else {
+    ss << "Message: empty";
+  }
+  return ss.str();
+}
 
 // For testing (DO NOT ALTER)
 void UnitTest() {

@@ -70,3 +70,7 @@ take 0 and add each element to that (start at 0!)
 have a temp to store the value in and swap them. 
 
 
+   // Assignment 
+   
+26 letters in the alphabet, mod by 26 %26 for any number to get it between 0 and 25 
+for numbers that go above or below the bounds, have to add or subtract 26. 

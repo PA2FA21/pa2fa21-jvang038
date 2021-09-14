@@ -36,8 +36,8 @@ int main() {
   // Loop while input is bad. Could be any of the three error bits
   while (!(cin >> integer_to_get)) {
     cout << "Try Again!" << endl;
-    cin.clear();
-    cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+    cin.clear(); // clear the flags NEED THIS 
+    cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n'); //need to get rid of things in buffer
   }
   // Ouput the integer
   cout << "You entered: " << integer_to_get << endl;

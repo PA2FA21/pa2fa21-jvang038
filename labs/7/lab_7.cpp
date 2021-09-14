@@ -1,6 +1,6 @@
 /*
  * Name        : lab_7.cpp
- * Author      : FILL IN
+ * Author      : Jasmine
  * Description : Working with File I/O
  */
 #include <fstream>
@@ -58,6 +58,33 @@ int main() {
 
 // CODE HERE -- FUNCTION DEFINITION
 
+bool ProcessFile(string filename) {
+  string line;
+  ifstream fin;
+  fin.open(filename);
+  if (!fin) {
+    return false;
+  }
+  // had (!fin.eof()) but it was looping the blank line
+  // getline prior to checking While
+  while (getline(fin, line)) {
+      if (line == "10") {
+        OnTen();
+      } else if (line == "20") {
+        OnTwenty();
+      } else if (line == "30") {
+        OnThirty();
+      } else if (line == "40") {
+        OnForty();
+      } else if (line == "50") {
+        OnFifty();
+      } else {
+        OnError();
+      }
+  }
+  fin.close();
+  return true;
+}
 // For testing (DO NOT ALTER)
 void UnitTest() {
   cout << string(40, '-') << endl;

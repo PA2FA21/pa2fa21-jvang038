@@ -25,7 +25,7 @@ int main() {
 
   // Get the numbers from infile and output to outfile
   int first, second, third;
-  fin >> first >> second >> third;
+  fin >> first >> second >> third;  // Goes to file, ignore leading white space and add to variable
   fout << "The sum of the first 3\n" << "numbers in infile.txt\n"
        << "are " << (first + second + third) << endl;
 

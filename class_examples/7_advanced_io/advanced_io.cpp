@@ -24,15 +24,15 @@ int main() {
   // Declare our Input Stream
   ifstream fin("read.txt");
   // Declare our Output Stream
-  ofstream fout("append.txt", std::ios::app);
+  ofstream fout("append.txt", std::ios::app);  //append mode - write at the end of file
   // Make sure both streams connected successfully
   if (fin.fail() || fout.fail()) {
-    cerr << "Error opening/creating one of the files.\n";
+    cerr << "Error opening/creating one of the files.\n"; //cerr writes to the standard error output, need to add it to above
     exit(1);
   }
 
   // Get and output lines until we hit the end of the file
-  while (!fin.eof()) {
+  while (!fin.eof()) {   //not at the end of file
     // Get the current line in the file
     getline(fin, line);
     // Output the line to the output file (we are appending)

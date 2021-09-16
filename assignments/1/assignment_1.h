@@ -10,7 +10,10 @@
 
 // Add any includes and using statements Here
 
+#include <string>
+using std::string;
 // Declare Function Prototypes Here (What goes above main)
+bool CheckAlphabetic(const string &to_check);
 
 
 #endif /* ASSIGNMENT_1_H */

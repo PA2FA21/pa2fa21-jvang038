@@ -59,8 +59,7 @@ void MakeChange(int initial_value, int &quarters, int &dimes, int &nickels,
   quarters = initial_value / 25;
   dimes = initial_value % 25 / 10;
   nickels = initial_value % 25 % 10 / 5;
-  pennies = initial_value % 25 % 10 % 5 / 1; 
-  
+  pennies = initial_value % 25 % 10 % 5 / 1;
 }
 
 /*
@@ -87,7 +86,7 @@ double LaunchHumanCannonball(double initial_velocity, double launch_angle) {
   //     [y_velocity = initial_velocity * sin(radian_angle) * -1]
   double y_velocity = initial_velocity * sin(radian_angle) * -1;
 
-  // (4) Compute time of flight 
+  // (4) Compute time of flight
   //     [flight_time = (y_velocity) * 2 / -9.8]
   double flight_time = (y_velocity) * 2 / -9.8;
 
@@ -95,7 +94,6 @@ double LaunchHumanCannonball(double initial_velocity, double launch_angle) {
   //     [x_distance = x_velocity * flight_time]
   double x_distance = x_velocity * flight_time;
   return x_distance;
-
 }
 
 // For testing (DO NOT ALTER)

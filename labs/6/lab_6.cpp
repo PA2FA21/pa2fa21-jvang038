@@ -133,7 +133,8 @@ int FindLarger(const int &avalue, const int &bvalue) {
 int GetStats(const string &astring, int &upper, int &lower) {
   upper = 0;
   lower = 0;
-  for (int i = 0; i < astring.size(); i++) {
+  int size = astring.size();
+  for (int i = 0; i < size; i++) {
     if (isupper(astring[i])) {
       upper++;
     } else if (islower(astring[i])) {
@@ -147,10 +148,11 @@ string BuildMessage(const string &a_message, const bool &value) {
   stringstream ss;
   int i = 0;
   string message = a_message;
-  if (i != a_message.length() && value == false) {
+  int length = a_message.length();
+  if (i != length && value == false) {
     ss << "Message: " << a_message;
-  } else if (i != a_message.length() && value == true) {
-    for (int i = 0; i < a_message.length(); i++) {
+  } else if (i != length && value == true) {
+    for (int i = 0; i < length; i++) {
       message.at(i) = toupper(a_message.at(i));
     }
     ss << "Message: " << message;

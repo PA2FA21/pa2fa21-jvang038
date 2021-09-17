@@ -1,7 +1,7 @@
 /*
- * Name        : FILL IN
- * Author      : FILL IN
- * Description : FILL IN
+ * Name        : Assignment 1
+ * Author      : Jasmine Vang
+ * Description : Fnction Decleration and includes
  * Sources     : FILL IN
  */
 
@@ -15,9 +15,9 @@ using std::string;
 // Declare Function Prototypes Here (What goes above main)
 bool CheckAlphabetic(const string &to_check);
 
-bool EncryptString(string to_encrypt, int shift);
+bool EncryptString(string &to_encrypt, int shift);
 
-bool DecryptString(string to_decrypt, int shift);
+bool DecryptString(string &to_decrypt, int shift);
 
 double ComputeAverage(double list[], int size);
 

@@ -1,7 +1,7 @@
 /*
  * Name        : Assignment 1 
  * Author      : Jasmine Vang
- * Description : FILL IN
+ * Description : Manipulating letters, and numbers with varioius methods
  * Sources     : FILL IN
  */
 
@@ -9,27 +9,48 @@
 
 // Write Function Definitions Here (What goes below main)
 bool CheckAlphabetic(const string &to_check) {
-    int size = to_check.size();
+    int size = to_check.length();
+    if (to_check == "") {
+        return false;
+    }
     for (int i = 0; i < size; i++) {
        if (!isalpha(to_check[i])) {
           return false;
        }
-   }
-   return true; //happens after the if statement bc it needs to check every letter
+    }
+  return true;
+  // happens after the if statement bc it needs to check every letter
 }
 
-bool EncryptString(string to_encrypt, int shift) {
-    shift %= 26;
+bool EncryptString(string &to_encrypt, int shift) {
+    int number = shift % 26;
     int size = to_encrypt.size();
-    for (int i = 0; i < size; i++) {
-        to_encrypt[i] = to_encrypt[i] + shift;
+    if (CheckAlphabetic(to_encrypt) == false) {
+        return false;
+    } else {
+        for (int i = 0; i < size; i++) {
+            if (isupper(to_encrypt.at(i))) {
+                to_encrypt.at(i) = to_encrypt.at(i) + number;
+                if (to_encrypt.at(i) > 'Z') {
+                    to_encrypt.at(i) = to_encrypt.at(i) - 26;
+                } else if (to_encrypt.at(i) < 'A') {
+                    to_encrypt.at(i) = to_encrypt.at(i) + 26;
+                }
+            } else if (islower(to_encrypt.at(i))) {
+                to_encrypt.at(i) = to_encrypt.at(i) + number;
+                if (to_encrypt.at(i) > 'z' || to_encrypt.at(i) < 0) {
+                    to_encrypt.at(i) = to_encrypt.at(i) - 26;
+                } else if (to_encrypt.at(i) < 'a') {
+                    to_encrypt.at(i) = to_encrypt.at(i) + 26;
+                }
+            }
+        }
     }
     return true;
 }
 
-bool DecryptString(string to_decrypt, int shift) {
-   EncryptString(to_decrypt, -shift);
-   return true;
+bool DecryptString(string &to_decrypt, int shift) {
+  return EncryptString(to_decrypt, -shift);
 }
 
 double ComputeAverage(double list[], int size) {
@@ -59,6 +80,3 @@ double FindMaxValue(double value[], int size) {
     }
     return max;
 }
-
-//int min = a[0];
-// check against min value

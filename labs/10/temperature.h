@@ -1,6 +1,6 @@
 /*
  * Name        : temperature.h
- * Author      : FILL IN
+ * Author      : Jasmine Vang
  * Description : Class Header File
  */
 
@@ -10,6 +10,8 @@ using std::string;
 using std::stringstream;
 
 // ADD HEADER GUARD HERE
+#ifndef VANG_TEMPERATURE_H_
+#define VANG_TEMPERATURE_H_
 
 
 /*
@@ -114,3 +116,4 @@ class Temperature {
 };
 
 // REST OF HEADER GUARD GOES HERE
+#endif

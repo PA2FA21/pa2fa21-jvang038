@@ -1,0 +1,19 @@
+lectures 7 and 8 
+
+wrote all in main 
+dont wory about creating functions 
+
+based off of if
+if argc = 1 
+then echo back to user 
+else openfile output its contents 
+loop through all files 
+
+need one loop to open 
+and in same loop read and output to terminal
+
+use command line to test
+cd assignments/2
+cat #.txt 
+or 
+cat hello //file that isnt avilable to open. 

@@ -1,10 +1,12 @@
 /*
  * Name        : money.h
- * Author      : FILL IN
+ * Author      : Jasmine Vang
  * Description : Class Header File
  */
 
 // ADD HEADER GUARD HERE
+#ifndef VANG_MONEY_H_
+#define VANG_MONEY_H_
 
 #include <string>
 #include <iostream>
@@ -99,8 +101,8 @@ class Money {
    * Overload of << operator.
    * Outputs the money values to the output stream.
    * Should be in the form $x.xx
-   * @uses setw()
-   * @uses setfill()
+   * @uses setw() // 2 characters
+   * @uses setfill() // fill it with char 0 
    * @param ostream &out - The ostream object to output to
    * @param Money amount - The Money object to output from.
    * @return ostream& - The ostream object to allow for chaining of <<
@@ -113,3 +115,4 @@ class Money {
 };
 
 // REST OF HEADER GUARD GOES HERE
+#endif

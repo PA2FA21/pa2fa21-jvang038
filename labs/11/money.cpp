@@ -48,8 +48,8 @@ const Money operator -(const Money& amount1, const Money& amount2) {
 }
 
 bool operator ==(const Money &amount1, const Money &amount2) {
-  return ((amount1.cents_ == amount2.cents_)
-       && (amount1.dollars_ == amount2.dollars_));
+  return ((amount1.cents_ == amount2.cents_) &&
+          (amount1.dollars_ == amount2.dollars_));
 }
 
 const Money operator -(const Money &amount) {

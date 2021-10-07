@@ -12,6 +12,13 @@ using std::cin;
 using std::cout;
 using std::ifstream;
 
+/* Concatenates and lists the contents offiles.
+ * If no file is given, everything inputed on terminal 
+ * will be output on terminal.
+ * If file exists, open and output to terminal. 
+ * Can output several files, if a file does not exist, 
+ * output "No such file or directory".
+ */
 int main(int argc, char *argv[]) {
     ifstream fin;
     string line;

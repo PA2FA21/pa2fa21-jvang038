@@ -11,7 +11,7 @@ using std::cout;
 using std::endl;
 
 /*
- * A class to represent cents
+ * A class to represent cents   // DONT FORGET ; at end for class
  */
 class Cents {
  public:
@@ -104,19 +104,23 @@ int main() {
   return 0;
 }
 
+//constructor
 Cents::Cents(int cents) {
   cents_ = cents;
 }
 
+// Accesor
 int Cents::cents() const {
   return cents_;
 }
 
+// Mutator
 void Cents::set_cents(int cents) {
   cents_ = cents;
 }
 
 // These function are NOT a member function but they CAN access private members!
+// Overloaded + 
 const Cents operator +(const Cents &c1, const Cents &c2) {
   // Use the Cents constructor and operator+(int, int)
   // Notice we can access private member variables
@@ -128,14 +132,14 @@ const Cents operator -(const Cents &c1, const Cents &c2) {
 }
 
 bool operator ==(const Cents &c1, const Cents &c2) {
-  return (c1.cents_ == c2.cents_);
+  return (c1.cents_ == c2.cents_);  // THIS IS A BOOLEAN FUNCTION THAT WILL RETURN A BOOL
 }
 
 const Cents operator -(const Cents &c) {
   return (-c.cents_);
 }
 
-ostream& operator <<(ostream &out, const Cents &c) {
+ostream& operator <<(ostream &out, const Cents &c) {  // OSTREAM is Given to US, its name is OUT
   out << c.cents_;
   // Return the ostream object to allow for chaining of <<
   return out;

@@ -20,7 +20,8 @@ int main() {
   // Get the size of the array
   cout << "How many students? ";
   cin >> size;
-  cin.ignore(1000, '\n');
+  cin.ignore(1000, '\n'); 
+  // throw  new line character awway, ignore \n
   // Create our dynamic array
   students = new string[size];
 
@@ -32,7 +33,7 @@ int main() {
 
   // Output the students as a comma separated list
   cout << "The students entered were: ";
-  for (int i = 0; i < (size - 1); i++) {
+  for (int i = 0; i < (size - 1); i++) {  // the size -1 adds a comma to all but the last one. 
     cout << students[i] << ", ";
   }
   cout << students[size - 1] << endl;

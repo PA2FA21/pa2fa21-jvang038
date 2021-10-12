@@ -8,3 +8,10 @@ make style
 //run lab, instead of make style: 
 
 ./lab_#
+
+
+gdb lab_#
+run
+bt
+
+q, q, y

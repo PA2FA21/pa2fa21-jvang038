@@ -1,0 +1,5 @@
+append lets you write at the end of the file (app) 
+
+for assignment, dont copy and paste for encrypt decrypt decrypt is calling encrypt with negative shift
+encrypt(str, 6)
+decrypt(str, -6) so return encrypt(str, -6);  

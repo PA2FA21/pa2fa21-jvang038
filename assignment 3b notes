@@ -1,0 +1,25 @@
+// in the constructor 
+
+todoitem is a dynamic array  *todoitem // new with []
+capacity - how many can it possibly hold 
+size - the size of items actually in the list size_ = 25
+
+need a pointer to todoitem list_ the type is todoitem**
+
+// destructor
+
+delete todoitems, loops through size
+then frees dynamic *todoitem
+
+// memb func one
+dont have to call new
+takes dynamic array and brings it in 
+add list[] size as long as size != 25 
+
+increasing capacity in later class
+
+// deleteitem
+
+delete something and move everything down...
+
+// membfunc 7 

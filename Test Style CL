@@ -9,6 +9,7 @@ make style
 
 ./lab_#
 
+// debug segmentation fault
 
 gdb lab_#
 run

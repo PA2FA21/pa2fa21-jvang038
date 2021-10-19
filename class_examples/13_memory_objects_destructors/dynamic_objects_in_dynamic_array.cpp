@@ -5,6 +5,8 @@
  *               objects.
  */
 
+// HELPFUL FOR 3B
+
 #include <iostream>
 using std::cout;
 using std::cin;
@@ -48,26 +50,26 @@ int main() {
 Scores::Scores(int size) {
   // Set the internal size to the parameter
   size_ = size;
-  // Create the dynamic array
+  // Create the dynamic array // allocate the dynamic array of pointers
   values_ = new Score*[size];
 }
 
 Scores::~Scores() {
-  // First we delete all of our dynamic Score objects
+  // First we delete all of our dynamic Score objects // all the "new" things
   for (int i = 0; i < size_; i++)
     delete values_[i];
-  // Then we delete the dynamic values_ array
+  // Then we delete the dynamic values_ array // which was pointing at values_[i]
   delete[] values_;
 }
 
 void Scores::FillUp() {
   // Allocate new Score objects
   for (int i = 0; i < size_; i++) {
-    values_[i] = new Score;
+    values_[i] = new Score; // taking the first thing in an array and pointing it to a new score object
     cout << "Enter score #" << (i + 1) << ": ";
-    cin >> values_[i]->score;
+    cin >> values_[i]->score; // access score location in the dynamic object therefor uses ->
     cout << "Enter max value for score #" << (i + 1) << ": ";
-    cin >> values_[i]->max;
+    cin >> values_[i]->max; // holds both score and max, access it with -> 
   }
 }
 

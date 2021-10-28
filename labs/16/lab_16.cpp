@@ -1,6 +1,6 @@
 /*
  * Name        : lab_16.cpp
- * Author      : FILL IN
+ * Author      : Jasmine Vang
  * Description : Working with a Dynamic Array in a Class
  */
 #include <iostream>
@@ -124,7 +124,111 @@ int main() {
 }
 
 // CODE HERE -- FUNCTION DEFINITIONS
+/*
+ * Default constructor.
+ * Initializes max_items_ to 25, items_ to size max_items_
+ * and item_count_ to 0.
+ */
+ShoppingList::ShoppingList() {
+  max_items_ = 25;
+  items_ = new string[max_items_];
+  item_count_ = 0;
+}
 
+/*
+ * Overloaded constructor.
+ * Initializes max_items_ to max_items, items_ to size max_items
+ * and item_count_ to 0.
+ * @param unsigned int max_items - The desired size of the items_ array
+ */
+ShoppingList::ShoppingList(unsigned int max_items) {
+  max_items_ = max_items;
+  items_ = new string[max_items];
+  item_count_ = 0;
+}
+
+/*
+ * Destructor.
+ * Frees the memory associated with items_.
+ */
+ShoppingList::~ShoppingList() {
+  delete[] items_;
+}
+
+/*
+ * Accessor for max_items_
+ * @return unsigned int - The maximum number of items in this ShoppingList
+ */
+unsigned int ShoppingList::max_items() const {
+  return max_items_;
+}
+
+/*
+ * Accessor for item_count_
+ * @return unsigned int - The count of number of items in this ShoppingList
+ */
+unsigned int ShoppingList::item_count() const {
+  return item_count_;
+}
+
+/*
+ * Place an item at a specified index in the array and increment the count of
+ * items in the array.
+ * @param string item - The item to be added to the array
+ * @return bool - True if the item can be added, otherwise return false
+ */
+bool ShoppingList::AddItem(string item) {
+  if (item_count_ == max_items_) {
+    return false;
+  }
+  items_[item_count_] = item;
+  item_count_++;
+  return true;
+}
+
+/*
+ * Retrieve the item at a specified index in the array.
+ * The first line of this function is an assertion to check to see if the
+ * index is valid.
+ * @param unsigned int index - The zero-based index of the item to be
+ *                             retrieved
+ * @return string - The value of the item at the specified index
+ */
+string ShoppingList::GetItem(unsigned int index) const {
+  assert(index < item_count_);
+  return items_[index];
+}
+
+/*
+ * Retrieve a reference to the item at a specified index in the array.
+ * The first line of this function is an assertion to check to see if the
+ * index is valid.
+ * @param unsigned int index - The zero-based index of the item to be
+ *                             retrieved
+ * @return string& - A reference to the value of the item at the specified index
+ */
+string& ShoppingList::GetItem(unsigned int index) {
+  assert(index < item_count_);
+  return items_[index];
+}
+
+// Why Two GetItem with the same number/type of parameters?
+// http://www.geeksforgeeks.org/function-overloading-and-const-functions/
+
+/*
+ * Reset the items array by freeing its associated memory and re-allocating to
+ * a specified size.
+ * The first line of this function is an assertion to check to see if the
+ * parameter is greater than 0
+ * @param unsigned int max_items - The desired new max size of items_
+ */
+void ShoppingList::Reset(unsigned int max_items) {
+  assert(max_items > 0);
+  delete[] items_;
+  max_items_ = max_items;
+  items_ = new string[max_items_];
+  item_count_ = 0;
+}
 
 // For testing (DO NOT ALTER)
 void UnitTest(int test) {

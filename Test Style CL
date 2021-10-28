@@ -7,7 +7,7 @@ make style
 
 //run lab, instead of make style: 
 
-./lab_#
+    ./lab_#
 
 // debug segmentation fault
 
@@ -16,3 +16,9 @@ run
 bt
 
 q, q, y
+
+// errors to show top 10 lines
+make 2>&1 | head
+
+// errors to show top n lines
+make 2>&1 | head -n

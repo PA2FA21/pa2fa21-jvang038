@@ -40,7 +40,12 @@ void TodoItem::set_completed(bool completed) {
     completed_ = completed;
 }
 
-// NEED MEMBER FUNCTION TOFILE
+/* Return a string containing the descriptioin, priority
+ * and completed stauts, seperated by the '@' symbol
+ * Uses StringStream
+ * Uses the Scrub function to change '@' symbol that
+ * may be contained in description_
+*/
 string TodoItem::ToFile() {
     stringstream ss;
     string output;

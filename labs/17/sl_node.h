@@ -28,6 +28,7 @@ class SLNode {
   void set_next_node(SLNode* next_node);
   // Accessor for Next Node
   SLNode* next_node();
+
  private:
   SLNode* next_node_;
   int contents_;

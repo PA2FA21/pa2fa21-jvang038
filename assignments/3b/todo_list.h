@@ -28,10 +28,10 @@ class TodoList {
   // If the array is full, increase capacity by 10 and then add the item.
   void AddItem(TodoItem *item);
   // delete an item from the list and shift the list down
-  void DeleteItem(int where);
+  void DeleteItem(unsigned int where);
   // Accessor for item 
   // for types the star goes to the end
-  TodoItem* GetItem(int where);
+  TodoItem* GetItem(unsigned int where);
   // Accesor Returns an unsigned integer containing the current size of the list
   unsigned int GetSize();
   // Accesor, Returns an unsigned integer containing the 
@@ -57,7 +57,7 @@ class TodoList {
     void AddTen();
     // Compacts the array to get rid of an empty spot in the array. 
     // Should be called by DeleteItemat the appropriate time.
-    void CompactSpace();
+    void CompactSpace(unsigned int where);
 };
 
 #endif

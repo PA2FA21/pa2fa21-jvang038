@@ -16,6 +16,7 @@
 using std::string;
 using std::stringstream;
 using std::ostream;
+using std::endl;
 
 class TodoList {
  public:
@@ -49,8 +50,8 @@ class TodoList {
   // for loop that calls the get functions to print the appropriate item at i
     
  private:
-    int size_;
-    int cap_;
+    unsigned int size_;
+    unsigned int cap_;
     TodoItem** list_;
     // Increases the capacity of the array by 10. 
     // Should be called by AddItemat the appropriate time.

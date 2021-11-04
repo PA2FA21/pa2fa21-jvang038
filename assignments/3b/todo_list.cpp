@@ -12,13 +12,13 @@ TodoList::TodoList() {
     cap_ = 25;
     list_ = new TodoItem*[cap_];
     // Loop through array and set all to null
-    for (int i = 0; i < cap_; i++) {
+    for (unsigned int i = 0; i < cap_; i++) {
         list_[i] = NULL;
     }
 }
 // Destructor to clean up dynamic array
 TodoList::~TodoList() {
-    for (int i = 0; i < size_; i++) {
+    for (unsigned int i = 0; i < size_; i++) {
         delete list_[i];
     }
     delete[] list_;
@@ -27,7 +27,7 @@ TodoList::~TodoList() {
 // to the first available spot (i.e. the current size).
 // If the array is full, increase capacity by 10 and then add the item.
 void TodoList::AddItem(TodoItem *item) {
-    if (size_ != cap_) {
+    if (size_ < cap_) {
         list_[size_] = item;
         size_++;
     } else {
@@ -41,12 +41,12 @@ void TodoList::AddItem(TodoItem *item) {
 void TodoList::DeleteItem(unsigned int where) {
     // compaction video To delete the 1 item to move it
     //check to make sure index is valid
-    if (where >= size_) {
-        // something, cant run
-        
+    where--;
+    if (where < size_) {
+        delete list_[where];
+        CompactSpace(where);
+        size_--;
     }
-    delete list_[where - 1];
-    CompactSpace((where - 1));
 }
 // Accessor for item
 // if wanting 1 return 0
@@ -54,11 +54,11 @@ void TodoList::DeleteItem(unsigned int where) {
 // to do item is a type, a pointer type
 TodoItem* TodoList::GetItem(unsigned int where) {
     // check validity of index
-    if (where >= size_) {
-        // something, cant run
-        
+    where--;
+    if (where < size_) {
+        return list_[where];
     }
-    return list_[where - 1];
+    return NULL;
 }
 // Accesor Returns an unsigned integer containing the current size of the list
 unsigned int TodoList::GetSize() {
@@ -77,12 +77,12 @@ void TodoList::Sort() {
     // once checking priority, dont want to swap priority, want to swap the memory pointer
     // where is it pointing to
     // swap is written on picture of phone
-    for (int i = (size_ - 1); i >= 1; i--) {
-        for (int j = 0; j <= (i - 1); j++) {
-            if (list_[j][priority_] > list_[j + 1][priority_]) {
-                TodoItem* temp_ = list_[i];
-                list_[i] = list_[i + 1];
-                list_[i + 1] = temp_;
+    for (unsigned int i = (size_ - 1); i >= 1; i--) {
+        for (unsigned int j = 0; j <= (i - 1); j++) {
+            if (list_[j] -> priority() > list_[j + 1] -> priority()) {
+                TodoItem* temp_ = list_[j];
+                list_[j] = list_[j + 1];
+                list_[j + 1] = temp_;
             }
         }
     }
@@ -91,11 +91,20 @@ void TodoList::Sort() {
 // Uses the TodoItems ToFilefunction to create.
 // Each item should be on its own line.
 string TodoList::ToFile() {
-    return "hi";
+    stringstream ss;
+    for (unsigned int i = 0; i < size_; i++) {
+        ss << list_[i] -> ToFile() << endl;
+    }
+    return ss.str();
 }
 
 // Overloaded <<
 ostream& operator <<(ostream &out, const TodoList &t) {
+    for (unsigned int i = 0; i < t.size_; i++) {
+        out << "#" << i << t.list_[i] -> description() << " ";
+        out << t.list_[i] -> priority() << " ";
+        out << t.list_[i] -> completed() << endl;
+    }
     return out;
 }
 // for loop that calls the get functions to print the appropriate item at i
@@ -106,20 +115,20 @@ void TodoList::AddTen() {
     TodoItem** temp_;
     cap_ = (cap_ + 10);
     temp_ = new TodoItem*[cap_];
-    for (int i = size_; i < cap_; i++) {
-        temp_[i] = NULL;
-    }
-    for (int i = 0; i < cap_; i++) {
+    for (unsigned int i = 0; i < size_; i++) {
         temp_[i] = list_[i];
+    }
+    for (unsigned int i = size_; i < cap_; i++) {
+        temp_[i] = NULL;
     }
     delete[] list_;
     list_ = temp_;
 }
 // Compacts the array to get rid of an empty spot in the array.
 // Should be called by DeleteItem at the appropriate time.
-void TodoList::CompactSpace(unsigned where) {
-    for (int i = (where - 1); i < size_; i++) {
-        list_[i] = list_[i++];
+void TodoList::CompactSpace(unsigned int where) {
+    for (unsigned int i = where; i < size_ - 1; i++) {
+        list_[i] = list_[i + 1];
     }
-    list_[size_] = NULL;
+    list_[size_ - 1] = NULL;
 }

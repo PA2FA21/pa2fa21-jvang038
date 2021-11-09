@@ -1,0 +1,39 @@
+// add a tail pointer
+follow the pointer of head, with null and 0?
+
+// add if statement in add head
+if head is null, point tail to new node.
+
+// after deletion, 
+if head = null, tail = null 
+then size--, end algorithim 
+
+// clear list
+after the loop, tail = null
+
+// call add head when list is empty
+when size is 0, head is null 
+will introduce the tail algorithim 
+
+// else list isnt empty 
+tail_ setnextnode(newnode) 
+tail_ = newnode
+size++
+
+// removing from tail when list is empty
+when head is null call remove head
+
+check iterators next node, if it =s tail node 
+once found, point that node to Null, delete tail, 
+tail = new last node
+
+node* iterator = head_;
+while iterator Nextnode() != tail 
+    iterator = iterator Nextnode();
+when loop ends, iterator setnextnode() null 
+delete tail, tail = iterator 
+size-- 
+
+// get head or get tail 
+if head != null, return head -> contents 
+same for tail

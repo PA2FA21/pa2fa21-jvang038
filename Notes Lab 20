@@ -1,0 +1,42 @@
+// part of the find algorithim 
+
+if head == NULL || value <= head -> contents())
+then inserthead(value) 
+
+else if (value >= tail -> contents()) 
+then inserttail(value)
+
+else // must be in the middle the catch all
+SLNode iterator, SLNode trailer
+point to head (1st node)
+while iterator is less than 
+trailer = iterator, iterator = iterator -> nextnode
+new node -> set next node iterator
+trailer -> set next node new node
+
+
+// deleting from linked list
+
+find it, delete it, update arrows
+there are four outcomes
+
+delete front, end, middle, or item not found 
+
+if list isnt empty, create two iterators point to beginning 
+loop while iterator != NULL && iterates != node to delete
+
+point trailer to iterator, point iterator to next node 
+
+after loop ends: 
+if iterator is null
+
+else if (iterator == head)
+node to delete is head node - remove head ();
+
+else if (iterator == tail)
+removetail();
+
+else // deleting in the middle 
+trailer setnextnode to iterators next node
+delete iterator 
+size--

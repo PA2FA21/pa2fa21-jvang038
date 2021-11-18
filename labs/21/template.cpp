@@ -25,9 +25,11 @@ using std::stringstream;
  *                  specified separator character
  */
 template <typename Type>
-string PrepareForDisplay(Type values[], unsigned int size, char separator = ',') {
+string PrepareForDisplay(Type values[], unsigned int size,
+                                        char separator = ',') {
   unsigned int i;
   stringstream ss;
+  // Set Perscion will only work when applicable
   ss.setf(std::ios::showpoint | std::ios::fixed);
   ss.precision(2);
   for (i = 0; i < size - 1; i++) {
@@ -36,8 +38,6 @@ string PrepareForDisplay(Type values[], unsigned int size, char separator = ',')
   ss << values[i];
   return ss.str();
 }
-
-// SET PERCISION 
 
 /*
  * Function Name: HasValue
@@ -71,7 +71,8 @@ bool HasValue(Type values[], unsigned int size, Type value_to_find) {
  *               you can return T()
  */
 template <typename Type>
-Type ValueAt(Type values[], unsigned int size, unsigned int index, bool &error) {
+Type ValueAt(Type values[], unsigned int size,
+                            unsigned int index, bool &error) {
     if (index <= (size - 1)) {
       error = false;
       return values[index];
@@ -108,8 +109,9 @@ T Sum(T values[], unsigned int size) {
  * @param unsigned int index2 - The position of the second value to be swapped
  * @return bool - true if the swap was successful, otherwise false
  */
- template <typename T>
- bool SwapValues(T values[], unsigned int size, unsigned int index1, unsigned int index2) {
+template <typename T>
+bool SwapValues(T values[], unsigned int size,
+                            unsigned int index1, unsigned int index2) {
   T holder;
   if (index1 >= 0 && index1 < size && index2 >= 0 && index2 < size) {
     holder = values[index1];

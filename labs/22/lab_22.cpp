@@ -1,6 +1,6 @@
 /*
  * Name        : lab_22.cpp
- * Author      : YOUR NAME
+ * Author      : Jasmine Vang
  * Description : Recursive Functions
  */
 
@@ -36,6 +36,9 @@ unsigned int Fibonacci(unsigned int fib_value);
  *         are considered palindromes
  */
 bool WordIsPalindrome(string word);
+// test first and last letter, if = keep recursing
+// 1 and 0 are terminating conditions return true
+// substr, testing sub string, takes location, starts at location 1
 
 /*
  * Produce a string containing the contents of an array, separated by single spaces,
@@ -50,6 +53,8 @@ bool WordIsPalindrome(string word);
  */
 string ArrayForwardsAsString(int array[], unsigned int start,
                              unsigned int size);
+// return ss
+// takes array and ouputs all values of array
 
 /*
  * Produce a string containing the contents of an array, separated by single spaces,
@@ -62,7 +67,9 @@ string ArrayForwardsAsString(int array[], unsigned int start,
  * @return a string containing the contents of the array, separated by spaces, in reverse order; returns empty string
  *         if the startIndex is < zero
  */
-string ArrayBackwardsAsString(int array[], unsigned int start, unsigned int size);
+string ArrayBackwardsAsString(int array[], unsigned int start,
+                              unsigned int size);
+// change function call to arraybackwards
 
 // For testing (DO NOT ALTER)
 #include <cctype>
@@ -83,6 +90,103 @@ int main() {
 }
 
 // CODE FUNCTION DEFINITIONS HERE
+/*
+ * Compute and return the factorial of a value, using a recursive algorithm. Zero factorial
+ * will return 1.
+ * @param value an unsigned integer containing the value for which the factorial will be computed
+ * @return an unsigned integer containing the computed factorial of the value
+ */
+
+unsigned int Factorial(unsigned int value) {
+  if (value == 1 || value == 0) {
+    return 1;
+  } else if (value > 1) {
+    return Factorial(value - 1) * value;
+  }
+  return 1;
+}
+
+/*
+ * Return a specified value in a Fibonacci sequence. The lowest value requested in the sequence
+ * must never be less than one.
+ * @param fibValue an unsigned integer specifying which value in the Fibonacci sequence to return
+ * @return an unsigned integer containing the requested value in the Fibonacci sequence
+ */
+unsigned int Fibonacci(unsigned int fib_value) {
+  if (fib_value == 0) {
+    return 0;
+  } else if (fib_value == 1) {
+    return 1;
+  } else if (fib_value > 1) {
+    return Fibonacci(fib_value - 1) + Fibonacci(fib_value - 2);
+  }
+  return 1;
+}
+
+/*
+ * Test a single word to see if it is a palindrome. The word must be all in the same case
+ * (upper or lower) and cannot contain spaces, digits, or punctuation.
+ * @param word a string containing the word to be tested
+ * @return true of word is a palindrome, else false; empty string and single character strings
+ *         are considered palindromes
+ */
+bool WordIsPalindrome(string word) {
+  if (word.size() <= 1) {
+    return true;
+  }
+  // the recursive call
+  if (word[0] == word[word.size() - 1]) {
+    return WordIsPalindrome(word.substr(1, word.size() - 2));
+  }
+  return false;
+}
+
+/*
+ * Produce a string containing the contents of an array, separated by single spaces,
+ * starting at a specified index and going forward to the end of the array. The returned
+ * string will contain an extra space character after the last value added.
+ * @param array an integer array containing the values to be added to the string
+ * @param start an unsigned integer containing the index of the first value in the array to be added
+ *        to the output string
+ * @param size an unsigned integer containing the number of elements in the array
+ * @return a string containing the contents of the array, separated by spaces; returns empty string
+ *         if the startIndex is >= the size of the array
+ */
+string ArrayForwardsAsString(int array[], unsigned int start,
+                             unsigned int size) {
+  stringstream ss;
+    if (start >= size) {
+     return ss.str();
+    } else {
+     ss << array[start] << " ";
+     ss << ArrayForwardsAsString(array, start + 1, size);
+     return ss.str();
+    }
+}
+
+/*
+ * Produce a string containing the contents of an array, separated by single spaces,
+ * starting at a specified index and going backward to the beginning of the array. The returned
+ * string will contain an extra space character after the last value added.
+ * @param array an integer array containing the values to be added to the string
+ * @param start an unsigned integer containing the index of the first value in the array to be added
+ *        to the output string
+ * @param size an unsigned integer containing the number of elements in the array
+ * @return a string containing the contents of the array, separated by spaces, in reverse order; returns empty string
+ *         if the startIndex is < zero
+ */
+string ArrayBackwardsAsString(int array[], unsigned int start,
+                              unsigned int size) {
+  stringstream ss;
+  if (start >= size) {
+    return ss.str();
+  } else {
+    ss << array[start] << " ";
+    ss << ArrayBackwardsAsString(array, start - 1, size);
+    return ss.str();
+  }
+}
+// change function call to arraybackwards
 
 
 // For testing (DO NOT ALTER)

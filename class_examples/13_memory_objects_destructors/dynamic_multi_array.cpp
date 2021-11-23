@@ -19,11 +19,11 @@ using std::endl;
 
 // Program starts here
 int main() {
-  // Create our variables
+  // Create our variables // row is students, col is quiz scores 
   int size_row, size_col, i_row, i_col, sum;
 
   // Creating a pointer to be used for the outside array
-  // This creates pointer that can hold integer pointers
+  // This creates pointer that can hold integer pointers // needs two * 
   int **quizzes;
 
   // Get the size of the outside array (i.e. the number of students)
@@ -34,7 +34,7 @@ int main() {
   cout << "How many quizzes? ";
   cin >> size_col;
 
-  // Create our dynamic outside array (an array of integer pointers)
+  // Create our dynamic outside array (an array of integer pointers) // quizzes ** -> *
   quizzes = new int*[size_row];
 
   // Create our dynamic inside arrays (arrays of integers)

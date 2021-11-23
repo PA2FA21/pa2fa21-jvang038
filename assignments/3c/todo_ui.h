@@ -11,11 +11,14 @@
 
 #include "todo_item.h"
 #include "todo_list.h"
+#include "CinReader.h"
 #include <iostream>
 #include <string>
 #include <sstream>
 using std::string;
 using std::stringstream;
+using std::cout;
+using std::cin;
 
 class TodoUI {
  public:
@@ -27,32 +30,28 @@ class TodoUI {
     // each one will do the logic for user input
     // menu will have if input then statement 
     void Menu();
+    unsigned int int_var;
+    string string_var;
+    bool bool_var;
+    char char_var;
  private:
     // dynamic instance of TodoList 
-    TodoList** something
-    // NEED cinreader
-    
+    TodoList* list;
+    // Instance of cinreader
+    CinReader reader;
+    // Welcome message
+    unsigned int Welcome();
+    // Create new item
+    void NewItem();
     // finds item to edit, deletes current instance, replaces with new value
-    void EditAnItem();
+    void EditItem();
+    // Delete an Item
+    void Delete();
+    // View Specific Item
+    void View();
+    // Deletes ALL items
+    void DeleteAll();
     // Displays exit message, quits program
-    void Quit();
 };
 
 #endif
-
-NOTE functions: Menu, Editanitem, quit, all missing parameters
-
-• Create New Item 
-• Edit an Item 
-• Delete an Item 
-• View All Items 
-• View Specific Item 
-• Delete All Items 
-• Quit Program
-
-// add nothing
-// add one
-// add two 
-// delete one thing
-// clear list then
-// add to list - did you recreate list

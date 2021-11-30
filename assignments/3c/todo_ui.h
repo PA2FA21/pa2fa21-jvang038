@@ -27,7 +27,7 @@ class TodoUI {
     // Destructor Frees the memory associated with the dynamic TodoList object
     ~TodoUI();
     // calls private functions that are in private
-    // each one will do the logic for user input
+    // each one will preform the logic for user input
     // menu will have if input then statement 
     void Menu();
     unsigned int int_var;
@@ -39,6 +39,7 @@ class TodoUI {
     TodoList* list;
     // Instance of cinreader
     CinReader reader;
+    void Display();
     // Welcome message
     unsigned int Welcome();
     // Create new item
@@ -47,11 +48,14 @@ class TodoUI {
     void EditItem();
     // Delete an Item
     void Delete();
+    // View all items in list
+    void ViewAll();
     // View Specific Item
     void View();
     // Deletes ALL items
     void DeleteAll();
     // Displays exit message, quits program
+    
 };
 
 #endif

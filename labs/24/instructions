@@ -32,7 +32,7 @@ private function interface:
 	void Clear (BSTNode*&), Clear the entire contents of the tree, freeing all memory
 							associated with all nodes
 	
-	string InOrder (BSTNode*), Creates a string of the data in all nodes in the tree,
+	void Clear (BSTNode*&, Creates a string of the data in all nodes in the tree,
 							   in ascending order, separate by spaces (there should be a 
 							   space after the last output value)
 

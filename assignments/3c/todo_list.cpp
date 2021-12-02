@@ -4,7 +4,7 @@
  * Description : To do lists
  * Sources     : FILL IN
  */
- 
+
 #include "todo_list.h"
 
 // Constructor to create dynamic array size 25 and set to null
@@ -44,7 +44,7 @@ void TodoList::AddItem(TodoItem *item) {
 // human readable, if enter delete 1 means delete 0
 void TodoList::DeleteItem(unsigned int where) {
     // compaction video To delete the 1 item to move it
-    //check to make sure index is valid
+    // check to make sure index is valid
     where--;
     if (where < size_) {
         delete list_[where];
@@ -77,11 +77,13 @@ unsigned int TodoList::GetCapacity() {
     return cap_;
 }
 
-// Sorts the array by the priorities of the items. (1 is highest priority, 5 is lowest).
+// Sorts the array by the priorities of the items.
+// (1 is highest priority, 5 is lowest).
 void TodoList::Sort() {
     // bubble or insertion, STABLE!
     // will still be using list_ as the array to sort
-    // once checking priority, dont want to swap priority, want to swap the memory pointer
+    // once checking priority, dont want to swap priority,
+    // want to swap the memory pointer
     // where is it pointing to
     for (unsigned int i = (size_ - 1); i >= 1; i--) {
         for (unsigned int j = 0; j <= (i - 1); j++) {
@@ -108,13 +110,18 @@ string TodoList::ToFile() {
 // Overloaded <<
 ostream& operator <<(ostream &out, const TodoList &t) {
     for (unsigned int i = 0; i < t.size_; i++) {
-        out << "#" << i << t.list_[i] -> description() << " ";
-        out << t.list_[i] -> priority() << " ";
-        out << t.list_[i] -> completed() << endl;
+        string complete = "Incomplete";
+        if (t.list_[i] -> completed() == true) {
+            complete = "Complete";
+        }
+        out << "#" << 1 + i << " " << t.list_[i] -> description();
+        out << setw(30 - (t.list_[i] -> description()).size())
+            << " Priority: " << t.list_[i] -> priority();
+        out << setw(20) << " Status: " << complete << endl;
     }
     return out;
 }
-    
+
 // Increases the capacity of the array by 10.
 // Should be called by AddItemat at the appropriate time.
 void TodoList::AddTen() {

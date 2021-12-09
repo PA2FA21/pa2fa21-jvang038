@@ -3,7 +3,7 @@
  * Author      : Jasmine Vang
  * Description : Creating Nodes
  */
- 
+
 // HEADER GUARD
 #ifndef VANG_DL_NODE_H
 #define VANG_DL_NODE_H

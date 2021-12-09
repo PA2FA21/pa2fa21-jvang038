@@ -105,12 +105,12 @@ void DLList::RemoveFirst(unsigned int parameter) {
     if (head_ != NULL) {
         DLNode* iterator_ = head_;
         DLNode* trailer_ = head_;
-        
+
         while (iterator_ != NULL && iterator_ -> GetContents() != parameter) {
             trailer_ = iterator_;
             iterator_ = iterator_ -> GetNext();
         }
-        
+
         if (iterator_ == NULL) {
             cerr << "Not Found";
         } else if (iterator_ == head_) {

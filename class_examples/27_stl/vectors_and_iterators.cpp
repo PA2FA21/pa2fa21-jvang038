@@ -14,6 +14,7 @@ using std::endl;
 // Outputting our Vector using iterators
 void OutputVector(const vector<int> &v) {
   cout << "Size: " << v.size() << "\nContents: ";
+  // vector iterator of int, v.begin at the begining !+ end and increment it
   for (vector<int>::const_iterator it = v.begin(); it != v.end(); it++)
     cout << *it << " ";
   cout << endl << endl;
@@ -41,7 +42,8 @@ int main() {
   cout << "v.erase(v.begin() + 1)\n";
   v.erase(v.begin() + 1);
   OutputVector(v);
-
+  
+  // v.erase(where)
   // This ends our program
   return 0;
 }

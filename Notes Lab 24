@@ -1,0 +1,42 @@
+check root for null to see if its empty
+
+// add value to tree - 4 conditions
+
+check for null first
+
+create node when null - option 1
+subroot = new BSTNode(value) need * and &
+
+1. tree is empty
+if root = null point to 5 and size++
+
+2. value is smaller then root
+go left
+
+3. value is larger then root
+go right
+
+4. value is same as root - dont insert at all 
+return
+
+// recusrsion stop case
+go left or right until reach null
+if root - subroot is null, exit
+
+
+// clear the tree
+to clear tree we need post order - delete each node
+if subroot = null, dont delete
+
+subroot != null
+otherwise, go left, go right, delete
+clear the left, clear right, clear root
+clear(subroot -> left)
+clear(subroot -> right)
+delete subroot;
+
+// output in order - inorder
+as long as root != Null
+go left, vist root, go right
+need stringstream
+ss << tostring(subroot -> left) << subroot contents << tostring(subroot -> right)

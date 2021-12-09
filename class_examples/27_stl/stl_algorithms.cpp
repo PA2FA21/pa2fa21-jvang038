@@ -51,8 +51,10 @@ int main() {
 
   // Let's insert a value before the value 26
   cout << "\nAdding 25 before 26\n";
+  // find the value 26, searcing from begening to end
   it = find(v.begin(), v.end(), 26);
   // Just to be safe...
+  // enter the value in the end
   if (it != v.end())
     v.insert(it, 25);
   cout << "The new vector: ";

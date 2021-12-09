@@ -1,3 +1,9 @@
+/*
+ * Name        : treasure_chest.h
+ * Author      : Jasmine Vang
+ * Description : Working with STL
+ */
+
 #ifndef TREASURE_CHEST_H_
 #define TREASURE_CHEST_H_
 

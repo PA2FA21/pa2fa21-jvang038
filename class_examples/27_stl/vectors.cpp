@@ -27,16 +27,16 @@ int main() {
   OutputVector(v1);
 
   cout << "vector<int> v2(10)\n";
-  vector<int> v2(10);
+  vector<int> v2(10);  // SIZE 10
   OutputVector(v2);
 
   cout << "vector<int> v3(10, -1)\n";
-  vector<int> v3(10, -1);
+  vector<int> v3(10, -1);  // SIZE 10 VALUES Initialiazed to -1
   OutputVector(v3);
 
   int array[] = { 1, 2, 3, 4, 5 };
   cout << "vector<int> v4(array, array + 5)\n";
-  vector<int> v4(array, array + 5);
+  vector<int> v4(array, array + 5);  // COPIES VALUE OF ARRAY from start of array to end of array (one after last spot)
   OutputVector(v4);
 
   cout << "vector<int> v5(v2)\n";
@@ -59,7 +59,7 @@ int main() {
     std::cerr << "Out of Range error: " << oor.what() << endl;
   }
 
-  // Adding to the end
+  // Adding to the end and increases size
   v1.push_back(5);
   v1.push_back(6);
   v1.push_back(7);

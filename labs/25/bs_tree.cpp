@@ -124,7 +124,8 @@ void BSTree::Clear(BSTNode* &subroot) {
 string BSTree::InOrder(BSTNode* subroot) {
     if (subroot != NULL) {
         stringstream ss;
-        ss << InOrder(subroot -> GetLeftChild()) << subroot -> GetContents()
+        ss << InOrder(subroot -> GetLeftChild())
+           << subroot -> GetContents()
            << " " << InOrder(subroot -> GetRightChild());
         return ss.str();
     }

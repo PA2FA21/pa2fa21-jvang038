@@ -35,7 +35,7 @@ class BSTNodeT {
   void DecrementCount();
   // Accessor for contenets
   T GetContents();
-  T& GetContents();
+//   T& GetContents();
   // accessor for left
   BSTNodeT* GetLeft() const;
   BSTNodeT*& GetLeft();
@@ -44,7 +44,7 @@ class BSTNodeT {
   BSTNodeT*& GetRight();
   // Accessor for count
   unsigned int GetCount();
-  unsigned int& GetCount();
+//   unsigned int& GetCount();
 
  private:
   BSTNodeT* left_;
@@ -58,7 +58,8 @@ class BSTNodeT {
 // Default constructor
 // sets left and right to null, count to 0
 // sets contents to its default
-BSTNodeT::BSTNodeT() {
+template<typename T>
+BSTNodeT<T>::BSTNodeT() {
     left_ = NULL;
     right_ = NULL;
     count_ = 0;
@@ -67,64 +68,81 @@ BSTNodeT::BSTNodeT() {
 // overloaded constructor
 // sets parameter to contents
 // sets count to 0, left and right to null
-BSTNodeT::BSTNodeT(T contents) {
+template<typename T>
+BSTNodeT<T>::BSTNodeT(T contents) {
     left_ = NULL;
     right_ = NULL;
     count_ = 0;
     contents_ = contents;
 }
 // Destructor sets left and right to null
-BSTNodeT::~BSTNodeT() {
+template<typename T>
+BSTNodeT<T>::~BSTNodeT() {
     left_ = NULL;
     right_ = NULL;
 }
 // sets contents to parameter
-void BSTNodeT::SetContents(T contents) {
+template<typename T>
+void BSTNodeT<T>::SetContents(T contents) {
     contents_ = contents;
 }
 // mutator for left
-void BSTNodeT::SetLeft(BSTNodeT* node_) {
+template<typename T>
+void BSTNodeT<T>::SetLeft(BSTNodeT* node_) {
     left_ = node_;
 }
 // mutator for right
-void BSTNodeT::SetRight(BSTNodeT* node_) {
-    right = node_;
+template<typename T>
+void BSTNodeT<T>::SetRight(BSTNodeT* node_) {
+    right_ = node_;
 }
 // mutator for count
-void BSTNodeT::IncrementCount() {
+template<typename T>
+void BSTNodeT<T>::IncrementCount() {
     count_++;
 }
 // mutator for count - decrement
-void BSTNodeT::DecrementCount() {
+template<typename T>
+void BSTNodeT<T>::DecrementCount() {
     count_--;
 }
 // Accessor for contenets
-T BSTNodeT::GetContents() {
+template<typename T>
+T BSTNodeT<T>::GetContents() {
     return contents_;
 }
-T& BSTNodeT::GetContents() {
-    return contents_;
-}
+
+// template<typename T>
+// T& BSTNodeT<T>::GetContents() {
+//     return contents_;
+// }
 // accessor for left
-BSTNodeT* BSTNodeT::GetLeft() const {
+template<typename T>
+BSTNodeT<T>* BSTNodeT<T>::GetLeft() const {
     return left_;
 }
-BSTNodeT*& BSTNodeT::GetLeft() {
+
+template<typename T>
+BSTNodeT<T>*& BSTNodeT<T>::GetLeft() {
     return left_;
 }
 // Accessor for right
-BSTNodeT* BSTNodeT::GetRight() const {
+template<typename T>
+BSTNodeT<T>* BSTNodeT<T>::GetRight() const {
     return right_;
 }
-BSTNodeT*& BSTNodeT::GetRight() {
+template<typename T>
+BSTNodeT<T>*& BSTNodeT<T>::GetRight() {
     return right_;
 }
 // Accessor for count
-unsigned int BSTNodeT::GetCount() {
+template<typename T>
+unsigned int BSTNodeT<T>::GetCount() {
     return count_;
 }
-unsigned int& BSTNodeT::GetCount() {
-    return count_;
-}
+// template<typename T>
+// unsigned int& BSTNodeT<T>::GetCount() {
+//     return count_;
+// }
 
 #endif
